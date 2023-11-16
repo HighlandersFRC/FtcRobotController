@@ -8,6 +8,8 @@ import com.qualcomm.robotcore.hardware.IMU;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.teamcode.PID;
 
+import java.util.Vector;
+
 public class Drive extends Command {
     org.firstinspires.ftc.teamcode.PID PID = new PID(0.07, 0.0, 0.2);
     org.firstinspires.ftc.teamcode.PID DrivePID = new PID(0.03, 0.0, 0.0);
@@ -43,6 +45,11 @@ public class Drive extends Command {
                 RevHubOrientationOnRobot.UsbFacingDirection.FORWARD));
         imu.initialize(parameters);
     }
+
+    public Drive(Vector l, double rx) {
+        super();
+    }
+
     public void start() {
         Right_Front.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         Left_Front.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
